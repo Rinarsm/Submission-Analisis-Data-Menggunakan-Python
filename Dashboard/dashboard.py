@@ -32,7 +32,7 @@ max_date = all_data["dateday"].max()
 # Filter data melalui sidebar
 with st.sidebar:
     #menambahkan gambar
-    st.image ("mountain-bike.jpg")
+    st.image ("./Dashboard/mountain-bike.jpg")
     start_date, end_date = st.date_input(
         "Rentang Waktu",
         min_value=min_date,
