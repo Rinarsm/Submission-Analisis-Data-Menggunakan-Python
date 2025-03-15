@@ -22,7 +22,7 @@ def create_byseason_df(df):
     return df.groupby(["season", "year"]).agg({"count": "sum"}).reset_index()
 
 # Muat data
-all_data = pd.read_csv("all_df.csv")
+all_data = pd.read_csv("./all_df.csv")
 
 # Konversi kolom tanggal
 all_data["dateday"] = pd.to_datetime(all_data["dateday"])
