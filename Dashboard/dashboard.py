@@ -32,8 +32,8 @@ def create_byseason_df(df):
     return df.groupby("season")["count"].sum().reset_index()
 
 # Muat dataset day_df dan hour_df
-day_df = pd.read_csv("day_clean.csv")
-hour_df = pd.read_csv("hour_clean.csv")
+day_df = pd.read_csv(".Dashboard/day_clean.csv")
+hour_df = pd.read_csv(".Dashboard/hour_clean.csv")
 
 # Konversi kolom tanggal menjadi tipe datetime
 day_df["dateday"] = pd.to_datetime(day_df["dateday"])
@@ -43,7 +43,7 @@ max_date = day_df["dateday"].max()
 
 # Filter data melalui sidebar
 with st.sidebar:
-    st.image("mountain-bike.jpg")
+    st.image(".Dashboard/mountain-bike.jpg")
     start_date, end_date = st.date_input("Rentang Waktu", min_value=min_date, max_value=max_date, value=[min_date, max_date])
 
 filtered_day_df = day_df[(day_df["dateday"] >= pd.Timestamp(start_date)) & (day_df["dateday"] <= pd.Timestamp(end_date))]
